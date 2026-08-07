@@ -510,8 +510,12 @@
 
     .expand-body {
       overflow: hidden;
-      height: 0;
-      transition: height 0.55s var(--ease);
+      max-height: 0;
+      transition: max-height 0.6s var(--ease);
+    }
+
+    .card.open .expand-body {
+      max-height: 2000px;
     }
 
     .expand-inner {
@@ -633,6 +637,54 @@
       font-size: 12px;
       color: var(--fg3);
       letter-spacing: 0.01em;
+    }
+
+    /* ── Process ───────────────────────────────────── */
+    .tape-wrap {
+      margin: 48px 0 52px;
+      filter: drop-shadow(0 4px 16px rgba(99,102,241,0.25));
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .process-step {
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-num {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #6366f1;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+    }
+
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--fg2);
+    }
+
+    @media (max-width: 860px) {
+      .process-grid { grid-template-columns: 1fr; }
     }
 
     /* ── About ─────────────────────────────────────── */
@@ -945,6 +997,85 @@
   </div>
 </div>
 
+<!-- PROCESO -->
+<div class="section" id="proceso">
+  <p class="s-label r" data-k="process.label">How we work</p>
+  <h2 class="s-title r" data-k="process.title">Custom development</h2>
+  <p class="s-sub r" data-k="process.sub">No templates, no generic software. Every system is built from scratch around the way your organization actually works.</p>
+
+  <div class="tape-wrap r" aria-hidden="true">
+    <svg viewBox="0 0 1000 54" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+      <defs>
+        <pattern id="tkSm" x="12" y="0" width="10" height="54" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="54" x2="0" y2="46" stroke="#6366f1" stroke-width="0.7" opacity="0.35"/>
+        </pattern>
+        <pattern id="tkMd" x="12" y="0" width="50" height="54" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="54" x2="0" y2="37" stroke="#6366f1" stroke-width="0.9" opacity="0.6"/>
+        </pattern>
+        <pattern id="tkLg" x="12" y="0" width="100" height="54" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="54" x2="0" y2="20" stroke="#6366f1" stroke-width="1.2" opacity="0.9"/>
+        </pattern>
+      </defs>
+
+      <!-- Hook — bracket en L -->
+      <polyline points="14,6 2,6 2,48 14,48" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Bordes superior e inferior de la cinta -->
+      <line x1="12" y1="6"  x2="1000" y2="6"  stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+      <line x1="12" y1="48" x2="1000" y2="48" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+
+      <!-- Marcas de graduación -->
+      <rect x="12" y="6" width="988" height="48" fill="url(#tkSm)"/>
+      <rect x="12" y="6" width="988" height="48" fill="url(#tkMd)"/>
+      <rect x="12" y="6" width="988" height="48" fill="url(#tkLg)"/>
+
+      <!-- Números -->
+      <text x="112" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">10</text>
+      <text x="212" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">20</text>
+      <text x="312" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">30</text>
+      <text x="412" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">40</text>
+      <text x="512" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">50</text>
+      <text x="612" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">60</text>
+      <text x="712" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">70</text>
+      <text x="812" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">80</text>
+      <text x="912" y="17" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="9" opacity="0.7">90</text>
+
+      <!-- Pin marcador en el centro -->
+      <line x1="500" y1="0" x2="500" y2="54" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.6"/>
+      <polygon points="500,0 494,8 506,8" fill="#6366f1"/>
+      <text x="512" y="7" fill="#6366f1" font-family="system-ui,sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" opacity="0.8">TU PROYECTO</text>
+    </svg>
+  </div>
+
+  <div class="process-grid">
+
+    <div class="process-step r">
+      <span class="step-num">01</span>
+      <h3 class="step-title" data-k="process.s1.t">Discovery</h3>
+      <p class="step-desc" data-k="process.s1.d">We interview your team to understand the real operational problem — not the surface symptom. The solution starts here, before any code.</p>
+    </div>
+
+    <div class="process-step r">
+      <span class="step-num">02</span>
+      <h3 class="step-title" data-k="process.s2.t">Proposal</h3>
+      <p class="step-desc" data-k="process.s2.d">A clear spec: exact scope, timeline, and cost. You know exactly what you're getting before we start. No surprises, no scope creep.</p>
+    </div>
+
+    <div class="process-step r">
+      <span class="step-num">03</span>
+      <h3 class="step-title" data-k="process.s3.t">Development</h3>
+      <p class="step-desc" data-k="process.s3.d">Full-stack execution with weekly check-ins and real access to progress. The system is built around your team's workflows — not the other way around.</p>
+    </div>
+
+    <div class="process-step r">
+      <span class="step-num">04</span>
+      <h3 class="step-title" data-k="process.s4.t">Handoff</h3>
+      <p class="step-desc" data-k="process.s4.d">Your team is trained, the system is documented, and I stay available. The software grows with your organization — it's yours, built to last.</p>
+    </div>
+
+  </div>
+</div>
+
 <!-- ABOUT -->
 <div class="section" id="about">
   <p class="s-label r" data-k="about.label">Background</p>
@@ -1044,6 +1175,17 @@
       'kernel.role':   'Sole developer · Digital transformation architect · Cooperativa Progresemos',
       'card.expand':   'See details',
       'card.modules':  'Modules',
+      'process.label': 'How we work',
+      'process.title': 'Custom development',
+      'process.sub':   'No templates, no generic software. Every system is built from scratch around the way your organization actually works.',
+      'process.s1.t':  'Discovery',
+      'process.s1.d':  'We interview your team to understand the real operational problem — not the surface symptom. The solution starts here, before any code.',
+      'process.s2.t':  'Proposal',
+      'process.s2.d':  'A clear spec: exact scope, timeline, and cost. You know exactly what you\'re getting before we start. No surprises, no scope creep.',
+      'process.s3.t':  'Development',
+      'process.s3.d':  'Full-stack execution with weekly check-ins and real access to progress. The system is built around your team\'s workflows — not the other way around.',
+      'process.s4.t':  'Handoff',
+      'process.s4.d':  'Your team is trained, the system is documented, and I stay available. The software grows with your organization — it\'s yours, built to last.',
       'about.label':      'Background',
       'about.title':      'About me',
       'about.accent':     'drives digital transformation',
@@ -1093,6 +1235,17 @@
       'kernel.role':   'Desarrollador exclusivo · Arquitecto de transformación digital · Cooperativa Progresemos',
       'card.expand':   'Ver detalles',
       'card.modules':  'Módulos',
+      'process.label': 'Cómo trabajamos',
+      'process.title': 'Desarrollo a medida',
+      'process.sub':   'Sin plantillas, sin software genérico. Cada sistema se construye desde cero alrededor de la forma en que tu organización realmente trabaja.',
+      'process.s1.t':  'Diagnóstico',
+      'process.s1.d':  'Entrevistamos a tu equipo para entender el problema operativo real — no el síntoma superficial. La solución empieza aquí, antes de escribir código.',
+      'process.s2.t':  'Propuesta',
+      'process.s2.d':  'Un documento claro: alcance exacto, tiempos y costo. Sabes exactamente qué vas a recibir antes de comenzar. Sin sorpresas, sin cambios de alcance.',
+      'process.s3.t':  'Desarrollo',
+      'process.s3.d':  'Ejecución full-stack con revisiones semanales y acceso real al avance. El sistema se construye alrededor de los flujos de tu equipo — no al revés.',
+      'process.s4.t':  'Entrega',
+      'process.s4.d':  'Tu equipo queda capacitado, el sistema documentado, y yo disponible. El software crece con tu organización — es tuyo, construido para durar.',
       'about.label':      'Trayectoria',
       'about.title':      'Sobre mí',
       'about.accent':     'impulsa la transformación digital',
@@ -1139,16 +1292,12 @@
 
     document.querySelectorAll('.card.open').forEach(c => {
       c.classList.remove('open');
-      c.querySelector('.expand-body').style.height = '0';
       const btn = c.querySelector('.expand-btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
 
     if (!isOpen) {
       card.classList.add('open');
-      const body  = card.querySelector('.expand-body');
-      const inner = card.querySelector('.expand-inner');
-      body.style.height = inner.offsetHeight + 'px';
       const btn = card.querySelector('.expand-btn');
       if (btn) btn.setAttribute('aria-expanded', 'true');
       setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
