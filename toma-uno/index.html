@@ -149,12 +149,14 @@
     /* Muestras */
     .samples-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .sample-card { background: var(--card); border-radius: 20px; overflow: hidden; }
-    .sample-img-wrap { aspect-ratio: 9/14; overflow: hidden; }
-    .sample-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .sample-img-wrap { aspect-ratio: 9/14; overflow: hidden; position: relative; }
+    .sample-img-wrap img, .sample-img-wrap video { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .sample-badge { position: absolute; top: 14px; left: 14px; background: rgba(0,0,0,0.55); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 5px 11px; border-radius: 980px; backdrop-filter: blur(6px); z-index: 2; }
     .sample-body { padding: 22px 24px 26px; }
     .sample-body h3 { font-size: 16px; font-weight: 600; color: var(--fg); margin-bottom: 6px; }
     .sample-body p { font-size: 13.5px; line-height: 1.6; color: var(--fg2); }
     .samples-note { font-size: 13px; color: var(--fg3); margin-top: 18px; }
+    .videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 36px; }
 
     /* Para qué sirve */
     .uses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -237,7 +239,7 @@
       .hero-visual { order: -1; }
       .phone-frame { width: 180px; }
       .problem-grid, .uses-grid, .pkg-grid, .compare-highlights { grid-template-columns: 1fr; }
-      .cap-grid, .samples-grid { grid-template-columns: 1fr; }
+      .cap-grid, .samples-grid, .videos-grid { grid-template-columns: 1fr; }
       .checklist { grid-template-columns: 1fr; }
       table.compare { font-size: 12.5px; }
       table.compare th, table.compare td { padding: 10px 8px; }
@@ -350,6 +352,34 @@
   <p class="s-label r" data-k="samples.label">La prueba</p>
   <h2 class="s-title r" data-k="samples.title">Así se ven los videos que produzco</h2>
   <p class="s-sub r" data-k="samples.sub">Dos estilos distintos, la misma idea: tu marca en movimiento.</p>
+
+  <div class="videos-grid">
+    <div class="sample-card r">
+      <div class="sample-img-wrap">
+        <span class="sample-badge" data-k="videos.real">Video real</span>
+        <video controls preload="metadata" poster="assets/demo-documental-poster.png" playsinline>
+          <source src="assets/demo-documental.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="sample-body">
+        <h3 data-k="videos.a.t">Estilo Documental</h3>
+        <p data-k="videos.a.d">Para contar un tema histórico o institucional con mapas, líneas de tiempo y datos, de forma clara y con ritmo.</p>
+      </div>
+    </div>
+    <div class="sample-card r">
+      <div class="sample-img-wrap">
+        <span class="sample-badge" data-k="videos.real">Video real</span>
+        <video controls preload="metadata" poster="assets/demo-noche.png" playsinline>
+          <source src="assets/demo-ahorro.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="sample-body">
+        <h3 data-k="videos.b.t">Video institucional completo</h3>
+        <p data-k="videos.b.d">Producido para Cooperativa Progresemos, publicado con su autorización. Narración, 3D y cifras de su producto real, de principio a fin.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="samples-grid">
     <div class="sample-card r">
       <div class="sample-img-wrap"><img src="assets/demo-cartoon.png" alt="Ejemplo de video — estilo explicativo"></div>
@@ -377,6 +407,13 @@
       <div class="sample-body">
         <h3 data-k="samples.d.t">Detalle que suma</h3>
         <p data-k="samples.d.d">Pequeñas animaciones (monedas, objetos, partículas) que refuerzan el beneficio sin saturar el mensaje.</p>
+      </div>
+    </div>
+    <div class="sample-card r">
+      <div class="sample-img-wrap"><img src="assets/demo-analitico.png" alt="Ejemplo de video — estilo analítico con datos"></div>
+      <div class="sample-body">
+        <h3 data-k="samples.e.t">Estilo Analítico</h3>
+        <p data-k="samples.e.d">Para explicar un proceso, una cifra o un dato técnico de forma visual, sin que se sienta como una clase.</p>
       </div>
     </div>
   </div>
@@ -611,11 +648,15 @@
       'cap.c3.t': 'Voz, sonido y movimiento incluidos', 'cap.c3.d': 'Cada video lleva narración con voz natural en español, efectos de sonido sincronizados con cada movimiento y objetos animados en 3D: tu logo, tu producto, tu mascota. Todo en tu paleta.', 'cap.c3.b': 'Recibes un video terminado, no un borrador que tienes que completar.',
       'cap.c4.t': 'El formato que necesites', 'cap.c4.d': 'Vertical para Reels, TikTok y Shorts. Horizontal para presentaciones, tu web o capacitaciones. Desde un anuncio de 20 segundos hasta un tutorial de varios minutos.', 'cap.c4.b': 'Una sola idea, todos tus canales cubiertos.',
       'samples.label': 'La prueba', 'samples.title': 'Así se ven los videos que produzco', 'samples.sub': 'Dos estilos distintos, la misma idea: tu marca en movimiento.',
+      'videos.real': 'Video real',
+      'videos.a.t': 'Estilo Documental', 'videos.a.d': 'Para contar un tema histórico o institucional con mapas, líneas de tiempo y datos, de forma clara y con ritmo.',
+      'videos.b.t': 'Video institucional completo', 'videos.b.d': 'Producido para Cooperativa Progresemos, publicado con su autorización. Narración, 3D y cifras de su producto real, de principio a fin.',
       'samples.a.t': 'Estilo Explicativo', 'samples.a.d': 'Colores vivos, personajes y objetos que rebotan. Ideal para promociones y para explicar un servicio en segundos.',
       'samples.b.t': 'Estilo Nocturno', 'samples.b.d': 'Escenas 3D con luz de cine y ambiente cálido. Ideal para campañas de marca y mensajes emotivos.',
       'samples.c.t': 'Mensaje con movimiento', 'samples.c.d': 'El texto clave entra sincronizado con la escena 3D, para que la idea se quede, no solo se lea.',
       'samples.d.t': 'Detalle que suma', 'samples.d.d': 'Pequeñas animaciones (monedas, objetos, partículas) que refuerzan el beneficio sin saturar el mensaje.',
-      'samples.note': 'Videos de ejemplo. Nombres y datos ficticios.',
+      'samples.e.t': 'Estilo Analítico', 'samples.e.d': 'Para explicar un proceso, una cifra o un dato técnico de forma visual, sin que se sienta como una clase.',
+      'samples.note': 'Videos de ejemplo. Nombres y datos ficticios, salvo el video institucional, publicado con autorización.',
       'uses.label': 'Casos de uso', 'uses.title': 'Videos para cada momento de tu empresa',
       'uses.1.t': 'Promocional', 'uses.1.d': 'Lanza un producto, una campaña o un sorteo.',
       'uses.2.t': 'Institucional', 'uses.2.d': 'Cuenta quién eres y por qué confiar en ti.',
@@ -689,11 +730,15 @@
       'cap.c3.t': 'Voice, sound and motion included', 'cap.c3.d': 'Every video includes natural voice narration in Spanish, sound effects synced to every movement, and 3D animated objects: your logo, your product, your mascot. All in your palette.', 'cap.c3.b': "You get a finished video, not a draft you still have to complete.",
       'cap.c4.t': 'The format you need', 'cap.c4.d': 'Vertical for Reels, TikTok and Shorts. Horizontal for presentations, your website or training. From a 20-second ad to a multi-minute tutorial.', 'cap.c4.b': 'One idea, every channel covered.',
       'samples.label': 'The proof', 'samples.title': "This is what the videos I produce look like", 'samples.sub': 'Two different styles, the same idea: your brand in motion.',
+      'videos.real': 'Real video',
+      'videos.a.t': 'Documentary Style', 'videos.a.d': 'For telling a historical or institutional story with maps, timelines and data, clearly and with pace.',
+      'videos.b.t': 'Full institutional video', 'videos.b.d': "Produced for Cooperativa Progresemos, published with their authorization. Narration, 3D and real product figures, start to finish.",
       'samples.a.t': 'Explainer Style', 'samples.a.d': 'Bright colors, characters and bouncy objects. Great for promotions and explaining a service in seconds.',
       'samples.b.t': 'Night Style', 'samples.b.d': 'Cinematic 3D scenes with warm lighting. Great for brand campaigns and emotional messaging.',
       'samples.c.t': 'A message that moves', 'samples.c.d': 'The key text lands in sync with the 3D scene, so the idea sticks, not just gets read.',
       'samples.d.t': 'A detail that adds up', 'samples.d.d': 'Small animated touches (coins, objects, particles) that reinforce the benefit without crowding the message.',
-      'samples.note': 'Example videos. Names and data are fictional.',
+      'samples.e.t': 'Analytical Style', 'samples.e.d': 'For explaining a process, a figure or a technical point visually, without it feeling like a lecture.',
+      'samples.note': 'Example videos. Names and data are fictional, except the institutional video, published with authorization.',
       'uses.label': 'Use cases', 'uses.title': 'Videos for every moment of your business',
       'uses.1.t': 'Promotional', 'uses.1.d': 'Launch a product, a campaign or a giveaway.',
       'uses.2.t': 'Institutional', 'uses.2.d': 'Tell people who you are and why to trust you.',
